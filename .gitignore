@@ -30,3 +30,5 @@
 
 # Debug files
 *.dSYM/
+DriveManager/DriveManager/obj/
+DriveManager/DriveManager/bin/Debug/DriveManager.vshost.exe.manifest
