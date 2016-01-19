@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DriveManager.Properties
+namespace DriveManager.WPF.Properties
 {
 
 
