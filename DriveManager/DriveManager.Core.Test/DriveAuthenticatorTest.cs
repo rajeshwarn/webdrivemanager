@@ -1,6 +1,16 @@
-﻿namespace DriveManager.Core.Test
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="DriveAuthenticatorTest.cs" company="Andrin Bürli">
+//   (c) Andrin Bürli 2016
+// </copyright>
+// <summary>
+//   Defines the DriveAuthenticatorTest type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace DriveManager.Core.Test
 {
     using FluentAssertions;
+
     using NUnit.Framework;
 
     [TestFixture]

@@ -1,52 +1,66 @@
-﻿namespace DriveManager.Core
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="DriveFilesGetter.cs" company="Andrin Bürli">
+//   (c) Andrin Bürli 2016
+// </copyright>
+// <summary>
+//   Defines the DriveFilesGetter type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace DriveManager.Core
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
+
     using Google.Apis.Drive.v2;
     using Google.Apis.Drive.v2.Data;
     using Google.Apis.Http;
     using Google.Apis.Services;
 
-    public class DriveTopFolderGetter
+    public class DriveFilesGetter
     {
-        private static string applicationName = "DriveManager";
+        private readonly DriveServiceProvider driveServiceProvider;
 
-        public void GetTopFoldersOf(IConfigurableHttpClientInitializer credentials)
+        public DriveFilesGetter(DriveServiceProvider driveServiceProvider)
         {
-            var service = new DriveService(new BaseClientService.Initializer()
-            {
-                HttpClientInitializer = credentials,
-                ApplicationName = applicationName,
-            });
+            this.driveServiceProvider = driveServiceProvider;
+        }
 
-            List<File> files = GetFiles(service);
-            IEnumerable<File> topFiles = files.Where(o => o.Parents.Any() == false);
+        public IEnumerable<DriveFile> GetDriveFiles(string mimeType)
+        {
+            var service = this.driveServiceProvider.GetService();
+
+            List<File> allFoldersWithMimeType = GetFiles(service, mimeType);
+            return allFoldersWithMimeType.Select(o => new DriveFile(o));
         }
 
         /// <summary>
         /// source: http://www.daimto.com/google-drive-api-c/
         /// </summary>
-        private static List<File> GetFiles(DriveService service)
+        private static List<File> GetFiles(DriveService service, string mimeType)
         {
-
             List<File> files = new List<File>();
 
             try
             {
-                //List all of the files and directories for the current user.  
+                // List all of the files and directories for the current user.  
                 // Documentation: https://developers.google.com/drive/v2/reference/files/list
                 FilesResource.ListRequest list = service.Files.List();
                 list.MaxResults = 1000;
                 FileList filesFeed = list.Execute();
 
-                //// Loop through until we arrive at an empty page
+                // Loop through until we arrive at an empty page
                 while (filesFeed.Items != null)
                 {
                     // Adding each item  to the list.
                     foreach (File item in filesFeed.Items)
                     {
-                        files.Add(item);
+                        if (mimeType == string.Empty ||
+                            item.MimeType == mimeType)
+                        {
+                            files.Add(item);
+                        }
                     }
 
                     // We will know we are on the last page when the next page token is

@@ -1,29 +1,46 @@
-﻿namespace DriveManager.Core.Test
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="DriveFileGetterTest.cs" company="Andrin Bürli">
+//   (c) Andrin Bürli 2016
+// </copyright>
+// <summary>
+//   Defines the DriveFileGetterTest type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace DriveManager.Core.Test
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using FluentAssertions;
+
+    using Google.Apis.Drive.v2.Data;
+
     using NUnit.Framework;
 
     [TestFixture]
     public class DriveFileGetterTest
     {
-        private DriveTopFolderGetter testee;
+        private DriveFilesGetter testee;
 
         [SetUp]
         public void Setup()
         {
-            this.testee = new DriveTopFolderGetter();
+            DriveAuthenticator driveAuthenticator = new DriveAuthenticator();
+            driveAuthenticator.Authenticate("test");
+            this.testee = new DriveFilesGetter(new DriveServiceProvider(driveAuthenticator));
         }
 
         [Test]
         public void GetFiles_WhenFilesAreGetted_ThenThereAreAny()
         {
-            // Arrange
-            DriveAuthenticator driveAuthenticator = new DriveAuthenticator();
-            driveAuthenticator.Authenticate("test");
-
+            // Arrange -
+            
             // Act
-            this.testee.GetTopFoldersOf(driveAuthenticator.Credential);
+            IEnumerable<DriveFile> rootFolders = this.testee.GetDriveFiles(DriveConstants.FolderMimeType);
 
             // Assert
+            rootFolders.Any().Should().BeTrue();
         }
     }
 }

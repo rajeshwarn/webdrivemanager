@@ -1,4 +1,13 @@
-﻿namespace DriveManager.Core
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="DriveAuthenticator.cs" company="Andrin Bürli">
+//   (c) Andrin Bürli 2016
+// </copyright>
+// <summary>
+//   Defines the DriveAuthenticator type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace DriveManager.Core
 {
     using System;
     using System.IO;
@@ -13,13 +22,18 @@
 
         public UserCredential Credential { get; private set; }
 
+        public bool IsAuthenticated
+        {
+            get { return this.Credential != null; }
+        }
+
         public void Authenticate(string username)
         {
             using (var stream = new FileStream("client_id.json", FileMode.Open, FileAccess.Read))
             {
                 string credPath = System.Environment.GetFolderPath(
-                    System.Environment.SpecialFolder.Personal);
-                credPath = Path.Combine(credPath, ".credentials/" + username);
+                    System.Environment.SpecialFolder.ApplicationData);
+                credPath = Path.Combine(credPath, "DriveManager\\.credentials/" + username);
 
                 this.Credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.Load(stream).Secrets,
@@ -29,11 +43,6 @@
                     new FileDataStore(credPath, true)).Result;
                 Console.WriteLine("Credential file saved to: " + credPath);
             }
-        }
-
-        public bool IsAuthenticated
-        {
-            get { return this.Credential != null; }
         }
     }
 }

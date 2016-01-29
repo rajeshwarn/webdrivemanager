@@ -76,7 +76,7 @@
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
@@ -119,7 +119,12 @@
   <ItemGroup>
     <Compile Include="DriveAccount.cs" />
     <Compile Include="DriveAuthenticator.cs" />
-    <Compile Include="DriveTopFolderGetter.cs" />
+    <Compile Include="DriveConstants.cs" />
+    <Compile Include="DriveFile.cs" />
+    <Compile Include="DriveFileDownloader.cs" />
+    <Compile Include="DriveFilesGetter.cs" />
+    <Compile Include="DriveFolderSynchronizer.cs" />
+    <Compile Include="DriveServiceProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
