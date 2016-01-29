@@ -1,7 +1,6 @@
 ﻿namespace DriveManager.Core
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using Google.Apis.Drive.v2;
@@ -15,7 +14,6 @@
 
         public void GetTopFoldersOf(IConfigurableHttpClientInitializer credentials)
         {
-            ;
             var service = new DriveService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credentials,
@@ -32,7 +30,7 @@
         private static List<File> GetFiles(DriveService service)
         {
 
-            List<File> Files = new List<File>();
+            List<File> files = new List<File>();
 
             try
             {
@@ -48,7 +46,7 @@
                     // Adding each item  to the list.
                     foreach (File item in filesFeed.Items)
                     {
-                        Files.Add(item);
+                        files.Add(item);
                     }
 
                     // We will know we are on the last page when the next page token is
@@ -71,7 +69,7 @@
                 // In the event there is an error with the request.
                 Console.WriteLine(ex.Message);
             }
-            return Files;
+            return files;
         }
     }
 }
