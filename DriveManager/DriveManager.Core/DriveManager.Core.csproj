@@ -119,6 +119,7 @@
   <ItemGroup>
     <Compile Include="DriveAccount.cs" />
     <Compile Include="DriveAuthenticator.cs" />
+    <Compile Include="DriveTopFolderGetter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

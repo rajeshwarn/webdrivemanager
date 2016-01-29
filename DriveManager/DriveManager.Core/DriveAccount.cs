@@ -9,9 +9,9 @@
             this.driveAuthenticator = driveAuthenticator;
         }
 
-        public void Authenticate()
+        public void Authenticate(string username)
         {
-            this.driveAuthenticator.Authenticate();
+            this.driveAuthenticator.Authenticate(username);
         }
 
         public bool IsAuthenticated

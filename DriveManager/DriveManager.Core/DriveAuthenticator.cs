@@ -10,23 +10,18 @@
     public class DriveAuthenticator
     {
         private static readonly string[] Scopes = { DriveService.Scope.DriveReadonly };
-        private static string applicationName = "DriveManager";
-        private UserCredential credential;
 
-        public DriveAuthenticator()
-        {
-            this.IsAuthenticated = false;
-        }
+        public UserCredential Credential { get; private set; }
 
-        public void Authenticate()
+        public void Authenticate(string username)
         {
             using (var stream = new FileStream("client_id.json", FileMode.Open, FileAccess.Read))
             {
                 string credPath = System.Environment.GetFolderPath(
                     System.Environment.SpecialFolder.Personal);
-                credPath = Path.Combine(credPath, ".credentials/drive-dotnet-quickstart");
+                credPath = Path.Combine(credPath, ".credentials/" + username);
 
-                this.credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                this.Credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.Load(stream).Secrets,
                     Scopes,
                     "user",
@@ -36,6 +31,9 @@
             }
         }
 
-        public bool IsAuthenticated { get; private set; }
+        public bool IsAuthenticated
+        {
+            get { return this.Credential != null; }
+        }
     }
 }

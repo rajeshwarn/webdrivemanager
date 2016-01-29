@@ -15,15 +15,15 @@
         }
 
         [Test]
-        public void WhenAuthentication_ThenDownloadOfFilesIsPossible()
+        public void WhenAuthentication_ThenAuthenticated()
         {
             // Arrange -
 
             // Act
-            this.testee.Authenticate();
+            this.testee.Authenticate("test");
 
             // Assert
             this.testee.IsAuthenticated.Should().BeTrue();
-        } 
+        }
     }
 }
