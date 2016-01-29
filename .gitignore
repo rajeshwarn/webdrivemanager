@@ -36,3 +36,5 @@ DriveManager/DriveManager.Core/obj/
 DriveManager/DriveManager.Core.Test/obj/
 DriveManager/DriveManager.WPF/obj/Debug/App.g.i.cs
 DriveManager/DriveManager.WPF/obj/Debug/
+DriveManager/packages/
+DriveManager/DriveManager.WPF/bin/Debug/DriveManager.WPF.exe.config
