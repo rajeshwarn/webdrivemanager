@@ -2,16 +2,21 @@
 {
     public class DriveAccount
     {
-        public DriveAccount()
+        private readonly DriveAuthenticator driveAuthenticator;
+
+        public DriveAccount(DriveAuthenticator driveAuthenticator)
         {
-            this.IsAuthenticated = false;
+            this.driveAuthenticator = driveAuthenticator;
         }
 
         public void Authenticate()
         {
-            throw new System.NotImplementedException();
+            this.driveAuthenticator.Authenticate();
         }
 
-        public bool IsAuthenticated { get; private set; }
+        public bool IsAuthenticated
+        {
+            get { return this.driveAuthenticator.IsAuthenticated; }
+        }
     }
 }

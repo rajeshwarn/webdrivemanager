@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,6 +14,8 @@ using System.Windows.Shapes;
 
 namespace DriveManager.WPF
 {
+    using Core;
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -22,6 +23,7 @@ namespace DriveManager.WPF
     {
         public MainWindow()
         {
+            new DriveAuthenticator().Authenticate();
             InitializeComponent();
         }
     }
