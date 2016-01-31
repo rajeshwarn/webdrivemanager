@@ -23,7 +23,7 @@ namespace WebDriveManager.WPF
     {
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
-            IKernel kernel = new StandardKernel(new ServiceInterfaceModule());
+            IKernel kernel = new StandardKernel(new CoreModule());
 
             var webDriveManagerTaskBarIcon = kernel.Get<WebDriveManagerTaskBarIcon>();
         }

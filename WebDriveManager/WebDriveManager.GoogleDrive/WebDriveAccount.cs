@@ -25,14 +25,14 @@ namespace WebDriveManager.GoogleDrive
             string username,
             string rootFolderPath,
             IAuthenticator driveAuthenticator,
-            IFilesGetterFactory driveFilesGetterFactory,
-            IFolderSynchronizerFactory driveFolderSynchronizerFactory)
+            IFilesGetter driveFilesGetter, 
+            IFolderSynchronizer driveFolderSynchronizer)
         {
             this.Username = username;
             this.driveAuthenticator = driveAuthenticator;
+            this.driveFilesGetter = driveFilesGetter;
+            this.driveFolderSynchronizer = driveFolderSynchronizer;
             this.RootFolderPath = rootFolderPath;
-            this.driveFilesGetter = driveFilesGetterFactory.Create();
-            this.driveFolderSynchronizer = driveFolderSynchronizerFactory.Create();
         }
 
         public string Username { get; private set; }

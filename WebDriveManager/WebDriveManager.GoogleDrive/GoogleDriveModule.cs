@@ -24,6 +24,7 @@ namespace WebDriveManager.GoogleDrive
             this.Bind<IFolderSynchronizer>().To<FolderSynchronizer>();
             this.Bind<IFileDownloader>().To<FileDownloader>();
             this.Bind<IWebDriveAccount>().To<GoogleDriveAccount>();
+            this.Bind<IWebDriveAccountFactory>().To<GoogleDriveAccountFactory>();
         }
     }
 }
