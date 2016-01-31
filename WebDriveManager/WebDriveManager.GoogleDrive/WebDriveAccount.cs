@@ -11,7 +11,7 @@ namespace WebDriveManager.GoogleDrive
 {
     using System.Collections.Generic;
 
-    using WebDriveManager.Core;
+    using WebDriveManager.ServiceInterfaces;
 
     public class GoogleDriveAccount : IWebDriveAccount
     {

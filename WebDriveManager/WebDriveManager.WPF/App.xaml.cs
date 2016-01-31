@@ -12,6 +12,10 @@ namespace WebDriveManager.WPF
     using System;
     using System.Windows;
 
+    using Ninject;
+
+    using WebDriveManager.ServiceInterfaces;
+
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
@@ -19,7 +23,7 @@ namespace WebDriveManager.WPF
     {
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
-            throw new NotImplementedException();
+            IKernel kernel = new StandardKernel(new ServiceInterfaceModule());
         }
     }
 }

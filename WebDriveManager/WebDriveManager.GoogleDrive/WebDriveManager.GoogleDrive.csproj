@@ -130,9 +130,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebDriveManager.Core\WebDriveManager.Core.csproj">
+    <ProjectReference Include="..\WebDriveManager.ServiceInterface\WebDriveManager.ServiceInterfaces.csproj">
       <Project>{A5188485-7BE0-4DFD-8B17-7EB93B5EFFBC}</Project>
-      <Name>WebDriveManager.Core</Name>
+      <Name>WebDriveManager.ServiceInterfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
