@@ -7,7 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace WebDriveManager.Core
+namespace WebDriveManager.ServiceInterfaces
 {
     public interface IWebDriveAccount
     {
