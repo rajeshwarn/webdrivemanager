@@ -9,13 +9,13 @@
 
 namespace DriveManager.Core
 {
-    public class DriveFolderSynchronizerFactory : IDriveFolderSynchronizerFactory
+    public class DriveFolderSynchronizerFactory : IFolderSynchronizerFactory
     {
-        private readonly IDriveFilesGetterFactory driveFileGetterFactory;
+        private readonly IFilesGetterFactory driveFileGetterFactory;
 
-        private readonly IDriveFileDownloader driveFileDownloader;
+        private readonly IFileDownloader driveFileDownloader;
 
-        public DriveFolderSynchronizerFactory(IDriveFilesGetterFactory driveFileGetterFactory, IDriveFileDownloader driveFileDownloader)
+        public DriveFolderSynchronizerFactory(IFilesGetterFactory driveFileGetterFactory, IFileDownloader driveFileDownloader)
         {
             this.driveFileGetterFactory = driveFileGetterFactory;
             this.driveFileDownloader = driveFileDownloader;

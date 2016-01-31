@@ -13,23 +13,22 @@ namespace DriveManager.Core
 
     public class DriveAccount
     {
-        private readonly IDriveAuthenticator driveAuthenticator;
+        private readonly IAuthenticator driveAuthenticator;
 
-        private readonly IDriveFilesGetter driveFilesGetter;
+        private readonly IFilesGetter driveFilesGetter;
 
-        private readonly IDriveFolderSynchronizer driveFolderSynchronizer;
+        private readonly IFolderSynchronizer driveFolderSynchronizer;
 
         public DriveAccount(
             string username,
             string rootFolderPath,
-            IDriveAuthenticator driveAuthenticator,
-            IDriveFilesGetterFactory driveFilesGetterFactory,
-            IDriveFolderSynchronizerFactory driveFolderSynchronizerFactory)
+            IAuthenticator driveAuthenticator,
+            IFilesGetterFactory driveFilesGetterFactory,
+            IFolderSynchronizerFactory driveFolderSynchronizerFactory)
         {
             this.Username = username;
             this.driveAuthenticator = driveAuthenticator;
             this.RootFolderPath = rootFolderPath;
-            DriveServiceProvider driveServiceProvider = new DriveServiceProvider(this.driveAuthenticator);
             this.driveFilesGetter = driveFilesGetterFactory.Create();
             this.driveFolderSynchronizer = driveFolderSynchronizerFactory.Create();
         }
@@ -39,7 +38,7 @@ namespace DriveManager.Core
         /// <summary>
         /// Folders in the root directory
         /// </summary>
-        public IEnumerable<DriveFile> Folders { get; private set; }
+        public IEnumerable<GoogleDriveFile> Folders { get; private set; }
 
         public string RootFolderPath { get; private set; }
 
@@ -54,7 +53,7 @@ namespace DriveManager.Core
         public void UpdateAccount()
         {
             this.driveAuthenticator.Authenticate(this.Username);
-            this.Folders = this.driveFilesGetter.GetDriveFiles(DriveConstants.FolderMimeType);
+            this.Folders = this.driveFilesGetter.GetDriveFiles(GoogleDriveConstants.FolderMimeType);
 
             foreach (var driveFile in this.Folders)
             {

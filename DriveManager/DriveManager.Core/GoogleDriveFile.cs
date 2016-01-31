@@ -1,9 +1,9 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="DriveFile.cs" company="Andrin Bürli">
+// <copyright file="GoogleDriveFile.cs" company="Andrin Bürli">
 //   (c) Andrin Bürli 2016
 // </copyright>
 // <summary>
-//   Defines the DriveFile type.
+//   Defines the GoogleDriveFile type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -13,11 +13,11 @@ namespace DriveManager.Core
 
     using Google.Apis.Drive.v2.Data;
 
-    public class DriveFile
+    public class GoogleDriveFile
     {
         private readonly File actualDriveFile;
 
-        public DriveFile(File actualDriveFile)
+        public GoogleDriveFile(File actualDriveFile)
         {
             this.actualDriveFile = actualDriveFile;
         }

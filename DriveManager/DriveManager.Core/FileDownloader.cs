@@ -1,9 +1,9 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="DriveFileDownloader.cs" company="Andrin Bürli">
+// <copyright file="FileDownloader.cs" company="Andrin Bürli">
 //   (c) Andrin Bürli 2016
 // </copyright>
 // <summary>
-//   Defines the DriveFileDownloader type.
+//   Defines the FileDownloader type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -12,25 +12,25 @@ namespace DriveManager.Core
     using System;
     using System.IO;
 
-    public class DriveFileDownloader : IDriveFileDownloader
+    public class FileDownloader : IFileDownloader
     {
-        private readonly DriveServiceProvider driveServiceProvider;
+        private readonly GoogleDriveServiceProvider driveServiceProvider;
 
-        public DriveFileDownloader(DriveServiceProvider driveServiceProvider)
+        public FileDownloader(GoogleDriveServiceProvider driveServiceProvider)
         {
             this.driveServiceProvider = driveServiceProvider;
         }
 
-        public bool Download(DriveFile driveFile, string targetFolder)
+        public bool Download(GoogleDriveFile googleDriveFile, string targetFolder)
         {
-            if (string.IsNullOrEmpty(driveFile.DownloadUrl) == false)
+            if (string.IsNullOrEmpty(googleDriveFile.DownloadUrl) == false)
             {
                 try
                 {
                     var request = this.driveServiceProvider.GetService()
-                        .HttpClient.GetByteArrayAsync(driveFile.DownloadUrl);
+                        .HttpClient.GetByteArrayAsync(googleDriveFile.DownloadUrl);
                     byte[] fileData = request.Result;
-                    File.WriteAllBytes(targetFolder + "\\" + driveFile.Title, fileData);
+                    File.WriteAllBytes(targetFolder + "\\" + googleDriveFile.Title, fileData);
                     return true;
                 }
                 catch (Exception e)

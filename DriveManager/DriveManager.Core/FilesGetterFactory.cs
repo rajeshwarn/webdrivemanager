@@ -9,7 +9,7 @@
 
 namespace DriveManager.Core
 {
-    public class DriveFilesGetterFactory : IDriveFilesGetterFactory
+    public class DriveFilesGetterFactory : IFilesGetterFactory
     {
         private readonly GoogleDriveServiceProvider googleDriveServiceProvider;
 

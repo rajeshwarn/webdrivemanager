@@ -13,6 +13,6 @@ namespace DriveManager.Core
 
     public interface IFilesGetter
     {
-        IEnumerable<GoogleDriveFile> GetDriveFiles(string mimeType);
+        IEnumerable<DriveFile> GetDriveFiles(string mimeType);
     }
 }

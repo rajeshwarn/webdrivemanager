@@ -18,9 +18,9 @@ namespace DriveManager.Core
     {
         private readonly IFilesGetter filesGetter;
 
-        private readonly IDriveFileDownloader driveFileDownloader;
+        private readonly IFileDownloader driveFileDownloader;
 
-        public FolderSynchronizer(IFilesGetter filesGetter, IDriveFileDownloader driveFileDownloader)
+        public FolderSynchronizer(IFilesGetter filesGetter, IFileDownloader driveFileDownloader)
         {
             this.filesGetter = filesGetter;
             this.driveFileDownloader = driveFileDownloader;
@@ -32,7 +32,7 @@ namespace DriveManager.Core
             this.SynchronizeContentOfFolder(
                 folderToSynchronize,
                 rootFolder,
-                this.filesGetter.GetDriveFiles(DriveConstants.AnyFileType).ToList());
+                this.filesGetter.GetDriveFiles(GoogleDriveConstants.AnyFileType).ToList());
         }
 
         private void SynchronizeContentOfFolder(DriveFile folderToSynchronize, string rootFolder, List<DriveFile> allDriveFiles)
@@ -49,7 +49,7 @@ namespace DriveManager.Core
 
             foreach (DriveFile childDriveFile in childDriveFiles)
             {
-                if (childDriveFile.MimeType == DriveConstants.FolderMimeType)
+                if (childDriveFile.MimeType == GoogleDriveConstants.FolderMimeType)
                 {
                     this.SynchronizeContentOfFolder(
                         childDriveFile, 
@@ -76,7 +76,7 @@ namespace DriveManager.Core
 
         private void EnsureThatDriveFileIsAFolder(DriveFile folderToSynchronize)
         {
-            if (folderToSynchronize.MimeType != DriveConstants.FolderMimeType)
+            if (folderToSynchronize.MimeType != GoogleDriveConstants.FolderMimeType)
             {
                 throw new InvalidOperationException("DriveFile " + folderToSynchronize.Title + " is not a Folder.");
             }

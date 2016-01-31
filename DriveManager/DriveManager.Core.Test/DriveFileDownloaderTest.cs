@@ -20,7 +20,7 @@ namespace DriveManager.Core.Test
     [TestFixture]
     public class DriveFileDownloaderTest
     {
-        private FileDownloader testee;
+        private DriveFileDownloader testee;
 
         private GoogleDriveServiceProvider googleDriveServiceProvider;
 
@@ -30,7 +30,7 @@ namespace DriveManager.Core.Test
             var driveAuthenticator = new Authenticator();
             driveAuthenticator.Authenticate("test");
             this.googleDriveServiceProvider = new GoogleDriveServiceProvider(driveAuthenticator);
-            this.testee = new FileDownloader(this.googleDriveServiceProvider);
+            this.testee = new DriveFileDownloader(this.googleDriveServiceProvider);
         }
 
         [Test]

@@ -20,9 +20,9 @@ namespace DriveManager.Core
 
     public class FilesGetter : IFilesGetter
     {
-        private readonly DriveServiceProvider driveServiceProvider;
+        private readonly GoogleDriveServiceProvider driveServiceProvider;
 
-        public FilesGetter(DriveServiceProvider driveServiceProvider)
+        public FilesGetter(GoogleDriveServiceProvider driveServiceProvider)
         {
             this.driveServiceProvider = driveServiceProvider;
         }

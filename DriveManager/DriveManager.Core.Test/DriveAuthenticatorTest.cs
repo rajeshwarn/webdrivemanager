@@ -16,12 +16,12 @@ namespace DriveManager.Core.Test
     [TestFixture]
     public class DriveAuthenticatorTest
     {
-        private DriveAuthenticator testee;
+        private Authenticator testee;
 
         [SetUp]
         public void Setup()
         {
-            this.testee = new DriveAuthenticator();
+            this.testee = new Authenticator();
         }
 
         [Test]

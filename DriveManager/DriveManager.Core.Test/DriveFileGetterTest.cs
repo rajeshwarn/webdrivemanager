@@ -21,14 +21,14 @@ namespace DriveManager.Core.Test
     [TestFixture]
     public class DriveFileGetterTest
     {
-        private DriveFilesGetter testee;
+        private FilesGetter testee;
 
         [SetUp]
         public void Setup()
         {
-            DriveAuthenticator driveAuthenticator = new DriveAuthenticator();
+            Authenticator driveAuthenticator = new Authenticator();
             driveAuthenticator.Authenticate("test");
-            this.testee = new DriveFilesGetter(new DriveServiceProvider(driveAuthenticator));
+            this.testee = new FilesGetter(new GoogleDriveServiceProvider(driveAuthenticator));
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace DriveManager.Core.Test
             // Arrange -
             
             // Act
-            IEnumerable<DriveFile> rootFolders = this.testee.GetDriveFiles(DriveConstants.FolderMimeType);
+            IEnumerable<DriveFile> rootFolders = this.testee.GetDriveFiles(GoogleDriveConstants.FolderMimeType);
 
             // Assert
             rootFolders.Any().Should().BeTrue();

@@ -11,6 +11,6 @@ namespace DriveManager.Core
 {
     public interface IFolderSynchronizer
     {
-        void SynchronizeFolder(GoogleDriveFile googleDriveFile, string rootFolderPath);
+        void SynchronizeFolder(DriveFile googleDriveFile, string rootFolderPath);
     }
 }

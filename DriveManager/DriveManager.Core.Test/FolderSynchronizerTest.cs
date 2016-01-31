@@ -20,30 +20,30 @@ namespace DriveManager.Core.Test
     [TestFixture]
     public class FolderSynchronizerTest
     {
-        private DriveFolderSynchronizer testee;
+        private FolderSynchronizer testee;
 
         [SetUp]
         public void Setup()
         {
-            var driveAuthenticator = new DriveAuthenticator();
-            driveAuthenticator.Authenticate("test");
-            var driveServiceProvider = new DriveServiceProvider(driveAuthenticator);
-            this.testee = new DriveFolderSynchronizer(new DriveFilesGetter(driveServiceProvider), new DriveFileDownloader(driveServiceProvider));
+            var authenticator = new Authenticator();
+            authenticator.Authenticate("test");
+            var serviceProvider = new GoogleDriveServiceProvider(authenticator);
+            this.testee = new FolderSynchronizer(new FilesGetter(serviceProvider), new DriveFileDownloader(serviceProvider));
         }
 
         [Test]
         public void Synchronize_WhenFolderIsSynchronize_ThenStructureIsCorrect()
         {
             // Arrange
-            var driveAuthenticator = new DriveAuthenticator();
-            driveAuthenticator.Authenticate("test");
-            var driveFilesGetter = new DriveFilesGetter(new DriveServiceProvider(driveAuthenticator));
-            var driveFiles = driveFilesGetter.GetDriveFiles(DriveConstants.FolderMimeType).ToList();
+            var authenticator = new Authenticator();
+            authenticator.Authenticate("test");
+            var filesGetter = new FilesGetter(new GoogleDriveServiceProvider(authenticator));
+            var files = filesGetter.GetDriveFiles(GoogleDriveConstants.FolderMimeType).ToList();
 
             // Act
-            string rootFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\TestGoogleDrive";
+            string rootFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\TestGoogle";
             this.testee.SynchronizeFolder(
-                driveFiles[1],
+                files[1],
                 rootFolder);
 
             // Assert
@@ -55,15 +55,15 @@ namespace DriveManager.Core.Test
         public void Synchronize_WhenFolderIsSynchronize_ThenThereAreAnyFoldersAndFiles()
         {
             // Arrange
-            var driveAuthenticator = new DriveAuthenticator();
-            driveAuthenticator.Authenticate("test");
-            var driveFilesGetter = new DriveFilesGetter(new DriveServiceProvider(driveAuthenticator));
-            var driveFiles = driveFilesGetter.GetDriveFiles(DriveConstants.FolderMimeType).ToList();
+            var authenticator = new Authenticator();
+            authenticator.Authenticate("test");
+            var filesGetter = new FilesGetter(new GoogleDriveServiceProvider(authenticator));
+            var files = filesGetter.GetDriveFiles(GoogleDriveConstants.FolderMimeType).ToList();
 
             // Act
-            string rootFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\TestGoogleDrive";
+            string rootFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\TestGoogle";
             this.testee.SynchronizeFolder(
-                driveFiles[1],
+                files[1],
                 rootFolder);
 
             // Assert
