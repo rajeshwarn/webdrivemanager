@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDriveManager.Core.Test",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDriveManager.WPF", "WebDriveManager.WPF\WebDriveManager.WPF.csproj", "{742E7B77-FE5A-4892-A5C9-8DAE1B23A761}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDriveManager.GoogleDrive", "WebDriveManager.GoogleDrive\WebDriveManager.GoogleDrive.csproj", "{3371AA29-15B2-4ACF-9A3E-773D71FDDFC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDriveManager.GoogleDrive.Test", "WebDriveManager.GoogleDrive.Test\WebDriveManager.GoogleDrive.Test.csproj", "{44ECA303-D4A7-4681-BD9C-49D63F967FEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,14 @@ Global
 		{742E7B77-FE5A-4892-A5C9-8DAE1B23A761}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{742E7B77-FE5A-4892-A5C9-8DAE1B23A761}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{742E7B77-FE5A-4892-A5C9-8DAE1B23A761}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3371AA29-15B2-4ACF-9A3E-773D71FDDFC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3371AA29-15B2-4ACF-9A3E-773D71FDDFC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3371AA29-15B2-4ACF-9A3E-773D71FDDFC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3371AA29-15B2-4ACF-9A3E-773D71FDDFC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44ECA303-D4A7-4681-BD9C-49D63F967FEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44ECA303-D4A7-4681-BD9C-49D63F967FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44ECA303-D4A7-4681-BD9C-49D63F967FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44ECA303-D4A7-4681-BD9C-49D63F967FEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

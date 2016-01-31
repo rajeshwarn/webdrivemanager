@@ -1,20 +1,16 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="CoreModule.cs" company="Andrin Bürli">
+// <copyright file="IFileDownloader.cs" company="Andrin Bürli">
 //   (c) Andrin Bürli 2016
 // </copyright>
 // <summary>
-//   Defines the CoreModule type.
+//   Defines the IFileDownloader type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace WebDriveManager.Core
+namespace WebDriveManager.GoogleDrive
 {
-    using Ninject.Modules;
-
-    public class CoreModule : NinjectModule
+    public interface IFileDownloader
     {
-        public override void Load()
-        {
-        }
+        bool Download(GoogleDriveFile googleDriveFile, string targetFolder);
     }
 }

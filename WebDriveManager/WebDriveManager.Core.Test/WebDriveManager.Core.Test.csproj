@@ -134,10 +134,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DriveAuthenticatorTest.cs" />
-    <Compile Include="DriveFileDownloaderTest.cs" />
-    <Compile Include="DriveFileGetterTest.cs" />
-    <Compile Include="FolderSynchronizerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

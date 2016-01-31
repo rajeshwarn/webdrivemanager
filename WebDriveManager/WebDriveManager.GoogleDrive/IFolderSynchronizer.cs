@@ -1,20 +1,16 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="CoreModule.cs" company="Andrin Bürli">
+// <copyright file="IFolderSynchronizer.cs" company="Andrin Bürli">
 //   (c) Andrin Bürli 2016
 // </copyright>
 // <summary>
-//   Defines the CoreModule type.
+//   Defines the IFolderSynchronizer type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace WebDriveManager.Core
+namespace WebDriveManager.GoogleDrive
 {
-    using Ninject.Modules;
-
-    public class CoreModule : NinjectModule
+    public interface IFolderSynchronizer
     {
-        public override void Load()
-        {
-        }
+        void SynchronizeFolder(GoogleDriveFile googleGoogleDriveFile, string rootFolderPath);
     }
 }

@@ -1,20 +1,20 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="CoreModule.cs" company="Andrin Bürli">
+// <copyright file="IWebDriveAccount.cs" company="Andrin Bürli">
 //   (c) Andrin Bürli 2016
 // </copyright>
 // <summary>
-//   Defines the CoreModule type.
+//   Defines the IWebDriveAccount type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace WebDriveManager.Core
 {
-    using Ninject.Modules;
-
-    public class CoreModule : NinjectModule
+    public interface IWebDriveAccount
     {
-        public override void Load()
-        {
-        }
+        string Username { get; }
+
+        string RootFolderPath { get; }
+
+        void UpdateAccount();
     }
 }

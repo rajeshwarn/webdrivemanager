@@ -41,3 +41,7 @@ DriveManager/DriveManager.WPF/bin/Debug/
 DriveManager/DriveManager.WPF/obj/Debug/
 DriveManager/DriveManager.Core.Test/bin/Debug/
 DriveManager/DriveManager.Core/bin/Debug/
+WebDriveManager/WebDriveManager.GoogleDrive.Test/bin/Debug/
+WebDriveManager/WebDriveManager.GoogleDrive.Test/obj/Debug/
+WebDriveManager/WebDriveManager.GoogleDrive/obj/Debug/
+WebDriveManager/WebDriveManager.GoogleDrive/bin/Debug/
