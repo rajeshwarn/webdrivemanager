@@ -59,5 +59,15 @@ namespace WebDriveManager.WPF.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon webdrivemanager {
+            get {
+                object obj = ResourceManager.GetObject("webdrivemanager", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

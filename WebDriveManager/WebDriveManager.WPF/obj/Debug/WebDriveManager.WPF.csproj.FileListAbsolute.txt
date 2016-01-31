@@ -72,3 +72,7 @@ D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager
 D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\obj\Debug\WebDriveManager.WPF.pdb
 D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\bin\Debug\WebDriveManager.ServiceInterfaces.dll
 D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\bin\Debug\WebDriveManager.ServiceInterfaces.pdb
+D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\obj\Debug\PopUpView.g.cs
+D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\obj\Debug\WebDriveManager.WPF_MarkupCompile.lref
+D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\bin\Debug\Hardcodet.Wpf.TaskbarNotification.dll
+D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\obj\Debug\PopUpView.baml
