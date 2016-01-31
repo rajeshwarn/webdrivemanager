@@ -7,12 +7,12 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DriveManager.Core
+namespace WebDriveManager.Core
 {
     using System.Collections.Generic;
 
     public interface IFilesGetter
     {
-        IEnumerable<DriveFile> GetDriveFiles(string mimeType);
+        IEnumerable<GoogleDriveFile> GetDriveFiles(string mimeType);
     }
 }

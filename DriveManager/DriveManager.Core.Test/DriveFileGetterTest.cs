@@ -7,14 +7,12 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DriveManager.Core.Test
+namespace WebDriveManager.Core.Test
 {
     using System.Collections.Generic;
     using System.Linq;
 
     using FluentAssertions;
-
-    using Google.Apis.Drive.v2.Data;
 
     using NUnit.Framework;
 
@@ -37,7 +35,7 @@ namespace DriveManager.Core.Test
             // Arrange -
             
             // Act
-            IEnumerable<DriveFile> rootFolders = this.testee.GetDriveFiles(GoogleDriveConstants.FolderMimeType);
+            IEnumerable<GoogleDriveFile> rootFolders = this.testee.GetDriveFiles(GoogleDriveConstants.FolderMimeType);
 
             // Assert
             rootFolders.Any().Should().BeTrue();

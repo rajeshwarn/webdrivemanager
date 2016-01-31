@@ -7,7 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DriveManager.Core.Test
+namespace WebDriveManager.Core.Test
 {
     using System;
     using System.IO;
@@ -20,7 +20,7 @@ namespace DriveManager.Core.Test
     [TestFixture]
     public class DriveFileDownloaderTest
     {
-        private DriveFileDownloader testee;
+        private FileDownloader testee;
 
         private GoogleDriveServiceProvider googleDriveServiceProvider;
 
@@ -30,7 +30,7 @@ namespace DriveManager.Core.Test
             var driveAuthenticator = new Authenticator();
             driveAuthenticator.Authenticate("test");
             this.googleDriveServiceProvider = new GoogleDriveServiceProvider(driveAuthenticator);
-            this.testee = new DriveFileDownloader(this.googleDriveServiceProvider);
+            this.testee = new FileDownloader(this.googleDriveServiceProvider);
         }
 
         [Test]

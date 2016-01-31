@@ -7,7 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DriveManager.Core
+namespace WebDriveManager.Core
 {
     using System.Collections.Generic;
 

@@ -7,7 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DriveManager.Core
+namespace WebDriveManager.Core
 {
     public interface IFolderSynchronizerFactory
     {

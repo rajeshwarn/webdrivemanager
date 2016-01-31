@@ -7,7 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DriveManager.Core
+namespace WebDriveManager.Core
 {
     using Ninject.Modules;
 
@@ -20,7 +20,7 @@ namespace DriveManager.Core
             this.Bind<IFilesGetterFactory>().To<DriveFilesGetterFactory>();
             this.Bind<IFolderSynchronizerFactory>().To<DriveFolderSynchronizerFactory>();
             this.Bind<IFolderSynchronizer>().To<FolderSynchronizer>();
-            this.Bind<IFileDownloader>().To<DriveFileDownloader>();
+            this.Bind<IFileDownloader>().To<FileDownloader>();
         }
     }
 }

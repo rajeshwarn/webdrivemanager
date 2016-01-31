@@ -7,7 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DriveManager.Core
+namespace WebDriveManager.Core
 {
     using System;
     using System.Collections.Generic;
@@ -26,7 +26,7 @@ namespace DriveManager.Core
             this.driveFileDownloader = driveFileDownloader;
         }
 
-        public void SynchronizeFolder(DriveFile folderToSynchronize, string rootFolder)
+        public void SynchronizeFolder(GoogleDriveFile folderToSynchronize, string rootFolder)
         {
             this.EnsureThatDriveFileIsAFolder(folderToSynchronize);
             this.SynchronizeContentOfFolder(
@@ -35,19 +35,19 @@ namespace DriveManager.Core
                 this.filesGetter.GetDriveFiles(GoogleDriveConstants.AnyFileType).ToList());
         }
 
-        private void SynchronizeContentOfFolder(DriveFile folderToSynchronize, string rootFolder, List<DriveFile> allDriveFiles)
+        private void SynchronizeContentOfFolder(GoogleDriveFile folderToSynchronize, string rootFolder, List<GoogleDriveFile> allDriveFiles)
         {
             string currentFolder = rootFolder + "\\" + folderToSynchronize.Title;
             Directory.CreateDirectory(currentFolder);
 
             var childDriveFiles = this.GetChildDriveFiles(folderToSynchronize, allDriveFiles);
 
-            foreach (DriveFile childDriveFile in childDriveFiles)
+            foreach (GoogleDriveFile childDriveFile in childDriveFiles)
             {
                 allDriveFiles.Remove(childDriveFile);
             }
 
-            foreach (DriveFile childDriveFile in childDriveFiles)
+            foreach (GoogleDriveFile childDriveFile in childDriveFiles)
             {
                 if (childDriveFile.MimeType == GoogleDriveConstants.FolderMimeType)
                 {
@@ -63,22 +63,22 @@ namespace DriveManager.Core
             }
         }
 
-        private List<DriveFile> GetChildDriveFiles(DriveFile folderToSynchronize, List<DriveFile> allDriveFiles)
+        private List<GoogleDriveFile> GetChildDriveFiles(GoogleDriveFile folderToSynchronize, List<GoogleDriveFile> allDriveFiles)
         {
-            List<DriveFile> childDriveFiles = allDriveFiles.Where(o => this.DriveFileIsInFolder(folderToSynchronize, o)).ToList();
+            List<GoogleDriveFile> childDriveFiles = allDriveFiles.Where(o => this.DriveFileIsInFolder(folderToSynchronize, o)).ToList();
             return childDriveFiles;
         }
 
-        private bool DriveFileIsInFolder(DriveFile folderToSynchronize, DriveFile o)
+        private bool DriveFileIsInFolder(GoogleDriveFile folderToSynchronize, GoogleDriveFile o)
         {
             return o.Parents.Any() && o.Parents.Single().Id == folderToSynchronize.Id;
         }
 
-        private void EnsureThatDriveFileIsAFolder(DriveFile folderToSynchronize)
+        private void EnsureThatDriveFileIsAFolder(GoogleDriveFile folderToSynchronize)
         {
             if (folderToSynchronize.MimeType != GoogleDriveConstants.FolderMimeType)
             {
-                throw new InvalidOperationException("DriveFile " + folderToSynchronize.Title + " is not a Folder.");
+                throw new InvalidOperationException("GoogleDriveFile " + folderToSynchronize.Title + " is not a Folder.");
             }
         }
     }

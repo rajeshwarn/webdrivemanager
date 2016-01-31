@@ -7,10 +7,10 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DriveManager.Core
+namespace WebDriveManager.Core
 {
     public interface IFolderSynchronizer
     {
-        void SynchronizeFolder(DriveFile googleDriveFile, string rootFolderPath);
+        void SynchronizeFolder(GoogleDriveFile googleGoogleDriveFile, string rootFolderPath);
     }
 }

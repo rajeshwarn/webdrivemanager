@@ -1,4 +1,4 @@
-﻿namespace DriveManager.WPF
+﻿namespace WebDriveManager.WPF
 {
     using System.Windows;
 

@@ -7,11 +7,12 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DriveManager.Core
+namespace WebDriveManager.Core
 {
     using System;
     using System.IO;
     using System.Threading;
+
     using Google.Apis.Auth.OAuth2;
     using Google.Apis.Drive.v2;
     using Google.Apis.Http;

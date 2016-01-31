@@ -4,15 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A5188485-7BE0-4DFD-8B17-7EB93B5EFFBC}</ProjectGuid>
+    <ProjectGuid>{A4315452-D122-4F8B-A639-4830F3369A51}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DriveManager.Core</RootNamespace>
-    <AssemblyName>DriveManager.Core</AssemblyName>
+    <RootNamespace>WebDriveManager.Core.Test</RootNamespace>
+    <AssemblyName>WebDriveManager.Core.Test</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>8288584a</NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>b3721996</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,6 +34,14 @@
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.7.4137.9688, Culture=neutral, PublicKeyToken=a4292a325f69b123, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.1.7.0\lib\Net40-Client\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentAssertions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.4.2.1\lib\net40\FluentAssertions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentAssertions.Core, Version=4.2.1.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.4.2.1\lib\net40\FluentAssertions.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Google.Apis, Version=1.10.0.25332, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
@@ -80,8 +88,8 @@
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.3.2.2.0\lib\net40\Ninject.dll</HintPath>
+    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -115,37 +123,32 @@
       <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.Threading.Tasks.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
     <Reference Include="Zlib.Portable, Version=1.11.0.0, Culture=neutral, PublicKeyToken=431cba815f6a8b5b, processorArchitecture=MSIL">
       <HintPath>..\packages\Zlib.Portable.Signed.1.11.0\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch+MonoAndroid\Zlib.Portable.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authenticator.cs" />
-    <Compile Include="CoreModule.cs" />
-    <Compile Include="FileDownloader.cs" />
-    <Compile Include="FilesGetter.cs" />
-    <Compile Include="FilesGetterFactory.cs" />
-    <Compile Include="FolderSynchronizer.cs" />
-    <Compile Include="FolderSynchronizerFactory.cs" />
-    <Compile Include="GoogleDriveConstants.cs" />
-    <Compile Include="GoogleDriveFile.cs" />
-    <Compile Include="GoogleDriveServiceProvider.cs" />
-    <Compile Include="IAuthenticator.cs" />
-    <Compile Include="IFileDownloader.cs" />
-    <Compile Include="IFilesGetter.cs" />
-    <Compile Include="IFilesGetterFactory.cs" />
-    <Compile Include="IFolderSynchronizer.cs" />
-    <Compile Include="IFolderSynchronizerFactory.cs" />
+    <Compile Include="DriveAuthenticatorTest.cs" />
+    <Compile Include="DriveFileDownloaderTest.cs" />
+    <Compile Include="DriveFileGetterTest.cs" />
+    <Compile Include="FolderSynchronizerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebDriveAccount.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="client_id.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DriveManager.Core\WebDriveManager.Core.csproj">
+      <Project>{A5188485-7BE0-4DFD-8B17-7EB93B5EFFBC}</Project>
+      <Name>WebDriveManager.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

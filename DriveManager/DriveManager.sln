@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriveManager.Core", "DriveManager.Core\DriveManager.Core.csproj", "{A5188485-7BE0-4DFD-8B17-7EB93B5EFFBC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDriveManager.Core", "DriveManager.Core\WebDriveManager.Core.csproj", "{A5188485-7BE0-4DFD-8B17-7EB93B5EFFBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriveManager.Core.Test", "DriveManager.Core.Test\DriveManager.Core.Test.csproj", "{A4315452-D122-4F8B-A639-4830F3369A51}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDriveManager.Core.Test", "DriveManager.Core.Test\WebDriveManager.Core.Test.csproj", "{A4315452-D122-4F8B-A639-4830F3369A51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriveManager.WPF", "DriveManager.WPF\DriveManager.WPF.csproj", "{742E7B77-FE5A-4892-A5C9-8DAE1B23A761}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDriveManager.WPF", "DriveManager.WPF\WebDriveManager.WPF.csproj", "{742E7B77-FE5A-4892-A5C9-8DAE1B23A761}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

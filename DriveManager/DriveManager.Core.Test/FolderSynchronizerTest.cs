@@ -7,7 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DriveManager.Core.Test
+namespace WebDriveManager.Core.Test
 {
     using System;
     using System.IO;
@@ -28,7 +28,7 @@ namespace DriveManager.Core.Test
             var authenticator = new Authenticator();
             authenticator.Authenticate("test");
             var serviceProvider = new GoogleDriveServiceProvider(authenticator);
-            this.testee = new FolderSynchronizer(new FilesGetter(serviceProvider), new DriveFileDownloader(serviceProvider));
+            this.testee = new FolderSynchronizer(new FilesGetter(serviceProvider), new FileDownloader(serviceProvider));
         }
 
         [Test]

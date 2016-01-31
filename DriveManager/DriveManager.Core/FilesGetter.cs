@@ -7,7 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DriveManager.Core
+namespace WebDriveManager.Core
 {
     using System;
     using System.Collections.Generic;
@@ -15,8 +15,6 @@ namespace DriveManager.Core
 
     using Google.Apis.Drive.v2;
     using Google.Apis.Drive.v2.Data;
-    using Google.Apis.Http;
-    using Google.Apis.Services;
 
     public class FilesGetter : IFilesGetter
     {
@@ -27,12 +25,12 @@ namespace DriveManager.Core
             this.driveServiceProvider = driveServiceProvider;
         }
 
-        public IEnumerable<DriveFile> GetDriveFiles(string mimeType)
+        public IEnumerable<GoogleDriveFile> GetDriveFiles(string mimeType)
         {
             var service = this.driveServiceProvider.GetService();
 
             List<File> allFoldersWithMimeType = GetFiles(service, mimeType);
-            return allFoldersWithMimeType.Select(o => new DriveFile(o));
+            return allFoldersWithMimeType.Select(o => new GoogleDriveFile(o));
         }
 
         /// <summary>

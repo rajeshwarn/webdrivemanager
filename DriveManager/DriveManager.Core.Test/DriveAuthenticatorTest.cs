@@ -7,7 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DriveManager.Core.Test
+namespace WebDriveManager.Core.Test
 {
     using FluentAssertions;
 

@@ -7,12 +7,9 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DriveManager.WPF
+namespace WebDriveManager.WPF
 {
     using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.Threading.Tasks;
     using System.Windows;
 
     /// <summary>

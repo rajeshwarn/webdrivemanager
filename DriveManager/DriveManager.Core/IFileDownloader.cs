@@ -7,10 +7,10 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DriveManager.Core
+namespace WebDriveManager.Core
 {
     public interface IFileDownloader
     {
-        bool Download(DriveFile driveFile, string targetFolder);
+        bool Download(GoogleDriveFile googleDriveFile, string targetFolder);
     }
 }
