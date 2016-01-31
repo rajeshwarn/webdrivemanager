@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="WebDriveManager.WPF.View.AccountsOverviewView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModel="clr-namespace:WebDriveManager.WPF.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance viewModel:AccountsOverviewViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Registered Accounts:"/>
+
+        <Button Grid.Column="1" Grid.Row="0" Content="Add"  Padding="0" Command="{Binding AddAccountCommand}">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Image Source="pack://application:,,,/Resources/add.png" Width="25" Height="25"></Image>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="Transparent"
+                  ItemsSource="{Binding RegisteredWebDriveAccounts}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="{Binding Username}"/>
+                        <Label Grid.Column="1" Content="{Binding RootFolderPath}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</UserControl>

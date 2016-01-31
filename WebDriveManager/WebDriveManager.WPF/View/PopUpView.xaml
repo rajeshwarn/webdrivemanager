@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="WebDriveManager.WPF.View.PopUpView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModel="clr-namespace:WebDriveManager.WPF.ViewModel"
+             xmlns:view="clr-namespace:WebDriveManager.WPF.View"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance viewModel:PopUpViewModel}">
+    
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type viewModel:AccountsOverviewViewModel}">
+            <view:AccountsOverviewView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:AddAcountViewModel}">
+            <view:AddAccountView />
+        </DataTemplate>
+    </UserControl.Resources>
+    
+    <Border BorderThickness="6" Padding="8" BorderBrush="CadetBlue" CornerRadius="1" Background="White">
+        <ContentControl Content="{Binding ViewContent}" />
+    </Border>
+</UserControl>

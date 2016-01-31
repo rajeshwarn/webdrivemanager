@@ -12,20 +12,35 @@ namespace WebDriveManager.WPF
     using System.Drawing;
     using System.Windows;
 
+    using Appccelerate.EventBroker;
+
     using Hardcodet.Wpf.TaskbarNotification;
 
+    using WebDriveManager.Core;
     using WebDriveManager.WPF.Properties;
+    using WebDriveManager.WPF.View;
+    using WebDriveManager.WPF.ViewModel;
 
     public class WebDriveManagerTaskBarIcon
     {
         private readonly TaskbarIcon taskbarIcon;
 
-        private readonly AddAccountCommand addAccountCommand;
+        private readonly AccountsOverviewViewModel accountsOverviewViewModel;
 
-        public WebDriveManagerTaskBarIcon(TaskbarIcon taskbarIcon, AddAccountCommand addAccountCommand)
+        private readonly AddAcountViewModel addAccountViewModel;
+
+        private EventBroker eventBroker;
+
+        public WebDriveManagerTaskBarIcon(
+            TaskbarIcon taskbarIcon,
+            AccountsOverviewViewModel accountsOverviewViewModel,
+            AddAcountViewModel addAccountViewModel, 
+            EventBroker eventBroker)
         {
             this.taskbarIcon = taskbarIcon;
-            this.addAccountCommand = addAccountCommand;
+            this.accountsOverviewViewModel = accountsOverviewViewModel;
+            this.addAccountViewModel = addAccountViewModel;
+            this.eventBroker = eventBroker;
             this.taskbarIcon.TrayMiddleMouseDown += (sender, args) => Application.Current.Shutdown();
             this.taskbarIcon.TrayPopupOpen += (sender, args) => this.taskbarIcon.TrayPopup.SetValue(UIElement.VisibilityProperty, Visibility.Visible);
             this.taskbarIcon.TrayPopup = this.CreatePopup();
@@ -37,7 +52,10 @@ namespace WebDriveManager.WPF
         private UIElement CreatePopup()
         {
             PopUpView view = new PopUpView();
-            PopUpViewModel viewModel = new PopUpViewModel(this.addAccountCommand);
+            PopUpViewModel viewModel = new PopUpViewModel(
+                this.accountsOverviewViewModel,
+                this.addAccountViewModel,
+                this.eventBroker);
             view.DataContext = viewModel;
             return view;
         }

@@ -34,8 +34,6 @@ DriveManager/DriveManager/obj/
 DriveManager/DriveManager/bin/Debug/DriveManager.vshost.exe.manifest
 DriveManager/DriveManager.Core/obj/
 DriveManager/DriveManager.Core.Test/obj/
-DriveManager/DriveManager.WPF/obj/Debug/App.g.i.cs
-DriveManager/DriveManager.WPF/obj/Debug/
 DriveManager/packages/
 DriveManager/DriveManager.WPF/bin/Debug/
 DriveManager/DriveManager.WPF/obj/Debug/
@@ -47,4 +45,3 @@ WebDriveManager/WebDriveManager.GoogleDrive/obj/Debug/
 WebDriveManager/WebDriveManager.GoogleDrive/bin/Debug/
 WebDriveManager/WebDriveManager.Core/bin/Debug/System.Net.Http.WebRequest.xml
 WebDriveManager/WebDriveManager.Core/obj/Debug/
-WebDriveManager/
