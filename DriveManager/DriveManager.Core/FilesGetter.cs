@@ -1,9 +1,9 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="DriveFilesGetter.cs" company="Andrin Bürli">
+// <copyright file="FilesGetter.cs" company="Andrin Bürli">
 //   (c) Andrin Bürli 2016
 // </copyright>
 // <summary>
-//   Defines the DriveFilesGetter type.
+//   Defines the FilesGetter type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -18,11 +18,11 @@ namespace DriveManager.Core
     using Google.Apis.Http;
     using Google.Apis.Services;
 
-    public class DriveFilesGetter
+    public class FilesGetter : IFilesGetter
     {
         private readonly DriveServiceProvider driveServiceProvider;
 
-        public DriveFilesGetter(DriveServiceProvider driveServiceProvider)
+        public FilesGetter(DriveServiceProvider driveServiceProvider)
         {
             this.driveServiceProvider = driveServiceProvider;
         }

@@ -20,24 +20,24 @@ namespace DriveManager.Core.Test
     [TestFixture]
     public class DriveFileDownloaderTest
     {
-        private DriveFileDownloader testee;
+        private FileDownloader testee;
 
-        private DriveServiceProvider driveServiceProvider;
+        private GoogleDriveServiceProvider googleDriveServiceProvider;
 
         [SetUp]
         public void Setup()
         {
-            var driveAuthenticator = new DriveAuthenticator();
+            var driveAuthenticator = new Authenticator();
             driveAuthenticator.Authenticate("test");
-            this.driveServiceProvider = new DriveServiceProvider(driveAuthenticator);
-            this.testee = new DriveFileDownloader(this.driveServiceProvider);
+            this.googleDriveServiceProvider = new GoogleDriveServiceProvider(driveAuthenticator);
+            this.testee = new FileDownloader(this.googleDriveServiceProvider);
         }
 
         [Test]
         public void Download_WhenFileIsDownloaded_ThenItIsCorrect()
         {
             // Arrange
-            var driveFileGetter = new DriveFilesGetter(this.driveServiceProvider);
+            var driveFileGetter = new FilesGetter(this.googleDriveServiceProvider);
             var driveFiles = driveFileGetter.GetDriveFiles(string.Empty).ToList();
 
             // Act

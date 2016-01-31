@@ -12,7 +12,7 @@ namespace DriveManager.Core
     using System;
     using System.IO;
 
-    public class DriveFileDownloader
+    public class DriveFileDownloader : IDriveFileDownloader
     {
         private readonly DriveServiceProvider driveServiceProvider;
 

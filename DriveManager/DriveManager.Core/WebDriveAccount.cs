@@ -13,29 +13,32 @@ namespace DriveManager.Core
 
     public class DriveAccount
     {
-        private readonly DriveAuthenticator driveAuthenticator;
+        private readonly IDriveAuthenticator driveAuthenticator;
 
-        private readonly DriveFilesGetter driveFilesGetter;
+        private readonly IDriveFilesGetter driveFilesGetter;
 
-        private readonly DriveFolderSynchronizer driveFolderSynchronizer;
+        private readonly IDriveFolderSynchronizer driveFolderSynchronizer;
 
         public DriveAccount(
             string username,
             string rootFolderPath,
-            DriveAuthenticator driveAuthenticator)
+            IDriveAuthenticator driveAuthenticator,
+            IDriveFilesGetterFactory driveFilesGetterFactory,
+            IDriveFolderSynchronizerFactory driveFolderSynchronizerFactory)
         {
             this.Username = username;
             this.driveAuthenticator = driveAuthenticator;
             this.RootFolderPath = rootFolderPath;
-            DriveServiceProvider driveServiceProvider = new DriveServiceProvider(new DriveAuthenticator());
-            this.driveFilesGetter = new DriveFilesGetter(driveServiceProvider);
-            this.driveFolderSynchronizer = new DriveFolderSynchronizer(
-                this.driveFilesGetter, 
-                new DriveFileDownloader(driveServiceProvider));
+            DriveServiceProvider driveServiceProvider = new DriveServiceProvider(this.driveAuthenticator);
+            this.driveFilesGetter = driveFilesGetterFactory.Create();
+            this.driveFolderSynchronizer = driveFolderSynchronizerFactory.Create();
         }
 
         public string Username { get; private set; }
 
+        /// <summary>
+        /// Folders in the root directory
+        /// </summary>
         public IEnumerable<DriveFile> Folders { get; private set; }
 
         public string RootFolderPath { get; private set; }

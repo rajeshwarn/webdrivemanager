@@ -1,9 +1,9 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="DriveFolderSynchronizer.cs" company="Andrin Bürli">
+// <copyright file="FolderSynchronizer.cs" company="Andrin Bürli">
 //   (c) Andrin Bürli 2016
 // </copyright>
 // <summary>
-//   Defines the DriveFolderSynchronizer type.
+//   Defines the FolderSynchronizer type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -14,15 +14,15 @@ namespace DriveManager.Core
     using System.IO;
     using System.Linq;
 
-    public class DriveFolderSynchronizer
+    public class FolderSynchronizer : IFolderSynchronizer
     {
-        private readonly DriveFilesGetter driveFilesGetter;
+        private readonly IFilesGetter filesGetter;
 
-        private readonly DriveFileDownloader driveFileDownloader;
+        private readonly IDriveFileDownloader driveFileDownloader;
 
-        public DriveFolderSynchronizer(DriveFilesGetter driveFilesGetter, DriveFileDownloader driveFileDownloader)
+        public FolderSynchronizer(IFilesGetter filesGetter, IDriveFileDownloader driveFileDownloader)
         {
-            this.driveFilesGetter = driveFilesGetter;
+            this.filesGetter = filesGetter;
             this.driveFileDownloader = driveFileDownloader;
         }
 
@@ -32,7 +32,7 @@ namespace DriveManager.Core
             this.SynchronizeContentOfFolder(
                 folderToSynchronize,
                 rootFolder,
-                this.driveFilesGetter.GetDriveFiles(DriveConstants.AnyFileType).ToList());
+                this.filesGetter.GetDriveFiles(DriveConstants.AnyFileType).ToList());
         }
 
         private void SynchronizeContentOfFolder(DriveFile folderToSynchronize, string rootFolder, List<DriveFile> allDriveFiles)

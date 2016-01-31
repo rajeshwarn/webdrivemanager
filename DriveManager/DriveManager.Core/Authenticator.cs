@@ -1,9 +1,9 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="DriveAuthenticator.cs" company="Andrin Bürli">
+// <copyright file="authenticator.cs" company="Andrin Bürli">
 //   (c) Andrin Bürli 2016
 // </copyright>
 // <summary>
-//   Defines the DriveAuthenticator type.
+//   Defines the authenticator type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -14,13 +14,14 @@ namespace DriveManager.Core
     using System.Threading;
     using Google.Apis.Auth.OAuth2;
     using Google.Apis.Drive.v2;
+    using Google.Apis.Http;
     using Google.Apis.Util.Store;
 
-    public class DriveAuthenticator
+    public class Authenticator : IAuthenticator
     {
         private static readonly string[] Scopes = { DriveService.Scope.DriveReadonly };
 
-        public UserCredential Credential { get; private set; }
+        public IConfigurableHttpClientInitializer Credential { get; private set; }
 
         public bool IsAuthenticated
         {

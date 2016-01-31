@@ -1,15 +1,15 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="DriveConstants.cs" company="Andrin Bürli">
+// <copyright file="GoogleDriveConstants.cs" company="Andrin Bürli">
 //   (c) Andrin Bürli 2016
 // </copyright>
 // <summary>
-//   Defines the DriveConstants type.
+//   Defines the GoogleDriveConstants type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace DriveManager.Core
 {
-    public static class DriveConstants
+    public static class GoogleDriveConstants
     {
         public const string FolderMimeType = "application/vnd.google-apps.folder";
 
