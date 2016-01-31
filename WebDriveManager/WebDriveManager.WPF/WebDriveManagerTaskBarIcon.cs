@@ -20,9 +20,12 @@ namespace WebDriveManager.WPF
     {
         private readonly TaskbarIcon taskbarIcon;
 
-        public WebDriveManagerTaskBarIcon(TaskbarIcon taskbarIcon)
+        private readonly AddAccountCommand addAccountCommand;
+
+        public WebDriveManagerTaskBarIcon(TaskbarIcon taskbarIcon, AddAccountCommand addAccountCommand)
         {
             this.taskbarIcon = taskbarIcon;
+            this.addAccountCommand = addAccountCommand;
             this.taskbarIcon.TrayMiddleMouseDown += (sender, args) => Application.Current.Shutdown();
             this.taskbarIcon.TrayPopupOpen += (sender, args) => this.taskbarIcon.TrayPopup.SetValue(UIElement.VisibilityProperty, Visibility.Visible);
             this.taskbarIcon.TrayPopup = this.CreatePopup();
@@ -34,7 +37,7 @@ namespace WebDriveManager.WPF
         private UIElement CreatePopup()
         {
             PopUpView view = new PopUpView();
-            PopUpViewModel viewModel = new PopUpViewModel();
+            PopUpViewModel viewModel = new PopUpViewModel(this.addAccountCommand);
             view.DataContext = viewModel;
             return view;
         }

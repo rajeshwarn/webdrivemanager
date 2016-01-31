@@ -60,6 +60,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddAccountCommand.cs" />
     <Compile Include="PopUpView.xaml.cs">
       <DependentUpon>PopUpView.xaml</DependentUpon>
     </Compile>
@@ -111,9 +112,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebDriveManager.ServiceInterface\WebDriveManager.ServiceInterfaces.csproj">
+    <ProjectReference Include="..\WebDriveManager.Core\WebDriveManager.Core.csproj">
       <Project>{A5188485-7BE0-4DFD-8B17-7EB93B5EFFBC}</Project>
-      <Name>WebDriveManager.ServiceInterfaces</Name>
+      <Name>WebDriveManager.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

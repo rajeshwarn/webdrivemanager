@@ -13,7 +13,7 @@ namespace WebDriveManager.WPF
     using System.Windows.Documents;
     using System.Windows.Input;
 
-    using WebDriveManager.ServiceInterfaces;
+    using WebDriveManager.Core;
 
     public class PopUpViewModel
     {

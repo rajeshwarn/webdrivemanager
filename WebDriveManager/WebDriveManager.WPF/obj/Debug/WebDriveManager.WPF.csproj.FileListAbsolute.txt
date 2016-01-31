@@ -70,9 +70,9 @@ D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager
 D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\obj\Debug\WebDriveManager.WPF.csproj.GenerateResource.Cache
 D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\obj\Debug\WebDriveManager.WPF.exe
 D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\obj\Debug\WebDriveManager.WPF.pdb
-D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\bin\Debug\WebDriveManager.ServiceInterfaces.dll
-D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\bin\Debug\WebDriveManager.ServiceInterfaces.pdb
 D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\obj\Debug\PopUpView.g.cs
 D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\obj\Debug\WebDriveManager.WPF_MarkupCompile.lref
 D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\bin\Debug\Hardcodet.Wpf.TaskbarNotification.dll
 D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\obj\Debug\PopUpView.baml
+D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\bin\Debug\WebDriveManager.Core.dll
+D:\Google Drive\apprenticeship\programming_stuff\C#\WPF\Projects\WebDriveManager\WebDriveManager\WebDriveManager.WPF\bin\Debug\WebDriveManager.Core.pdb

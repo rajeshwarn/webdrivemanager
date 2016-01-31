@@ -11,7 +11,7 @@ namespace WebDriveManager.GoogleDrive
 {
     using Ninject.Modules;
 
-    using WebDriveManager.ServiceInterfaces;
+    using WebDriveManager.Core;
 
     public class GoogleDriveModule : NinjectModule
     {

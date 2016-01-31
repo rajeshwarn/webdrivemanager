@@ -14,7 +14,7 @@ namespace WebDriveManager.WPF
 
     using Ninject;
 
-    using WebDriveManager.ServiceInterfaces;
+    using WebDriveManager.Core;
 
     /// <summary>
     /// Interaction logic for App.xaml
