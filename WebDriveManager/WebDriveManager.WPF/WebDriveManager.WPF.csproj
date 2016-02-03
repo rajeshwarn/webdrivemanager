@@ -71,14 +71,14 @@
     </ApplicationDefinition>
     <Compile Include="Helper\RelayCommand.cs" />
     <Compile Include="UserInterfaceModule.cs" />
-    <Compile Include="ViewModel\AddAcountViewModel.cs" />
+    <Compile Include="ViewModel\AddAccountDialogViewModel.cs" />
     <Compile Include="View\AccountsOverviewView.xaml.cs">
       <DependentUpon>AccountsOverviewView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AccountsOverviewViewModel.cs" />
     <Compile Include="EventTopics.cs" />
-    <Compile Include="View\AddAccountView.xaml.cs">
-      <DependentUpon>AddAccountView.xaml</DependentUpon>
+    <Compile Include="View\AddAccountDialogView.xaml.cs">
+      <DependentUpon>AddAccountDialogView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PopUpView.xaml.cs">
       <DependentUpon>PopUpView.xaml</DependentUpon>
@@ -100,7 +100,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\AddAccountView.xaml">
+    <Page Include="View\AddAccountDialogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

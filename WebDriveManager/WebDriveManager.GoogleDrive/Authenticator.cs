@@ -31,7 +31,7 @@ namespace WebDriveManager.GoogleDrive
 
         public void Authenticate(string username)
         {
-            using (var stream = new FileStream("client_id.json", FileMode.Open, FileAccess.Read))
+            using (var stream = new FileStream("client_secret.json", FileMode.Open, FileAccess.Read))
             {
                 string credPath = System.Environment.GetFolderPath(
                     System.Environment.SpecialFolder.ApplicationData);

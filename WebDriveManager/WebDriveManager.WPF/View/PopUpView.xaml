@@ -12,9 +12,6 @@
         <DataTemplate DataType="{x:Type viewModel:AccountsOverviewViewModel}">
             <view:AccountsOverviewView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:AddAcountViewModel}">
-            <view:AddAccountView />
-        </DataTemplate>
     </UserControl.Resources>
     
     <Border BorderThickness="6" Padding="8" BorderBrush="CadetBlue" CornerRadius="1" Background="White">

@@ -1,15 +1,16 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="AddAcountViewModel.cs" company="Andrin Bürli">
+// <copyright file="AddAccountDialogViewModel.cs" company="Andrin Bürli">
 //   (c) Andrin Bürli 2016
 // </copyright>
 // <summary>
-//   Defines the AddAcountViewModel type.
+//   Defines the AddAccountDialogViewModel type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace WebDriveManager.WPF.ViewModel
 {
     using System;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using System.Windows.Input;
 
@@ -18,13 +19,15 @@ namespace WebDriveManager.WPF.ViewModel
     using WebDriveManager.Core;
     using WebDriveManager.WPF.Helper;
 
-    public class AddAcountViewModel : ViewModelBase
+    using Application = System.Windows.Application;
+
+    public class AddAccountDialogViewModel : ViewModelBase
     {
         private readonly AccountManager accountManager;
 
         private readonly EventBroker eventBroker;
 
-        public AddAcountViewModel(
+        public AddAccountDialogViewModel(
             AccountManager accountManager, 
             EventBroker eventBroker)
         {
@@ -60,7 +63,7 @@ namespace WebDriveManager.WPF.ViewModel
         private void Browse()
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-
+                        
             if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 this.RootFolderPath = folderBrowserDialog.SelectedPath;

@@ -14,20 +14,22 @@ namespace WebDriveManager.WPF.ViewModel
     using Appccelerate.EventBroker;
     using Appccelerate.EventBroker.Handlers;
 
+    using WebDriveManager.WPF.View;
+
     public class PopUpViewModel : ViewModelBase
     {
         private readonly AccountsOverviewViewModel accountsOverviewViewModel;
 
-        private readonly AddAcountViewModel addAcountViewModel;
+        private readonly AddAccountDialogViewModel addAccountDialogViewModel;
 
         public PopUpViewModel(
             AccountsOverviewViewModel accountsOverviewViewModel,
-            AddAcountViewModel addAcountViewModel,
+            AddAccountDialogViewModel addAccountDialogViewModel,
             EventBroker eventBroker)
         {
             eventBroker.Register(this);
             this.accountsOverviewViewModel = accountsOverviewViewModel;
-            this.addAcountViewModel = addAcountViewModel;
+            this.addAccountDialogViewModel = addAccountDialogViewModel;
 
             this.SetViewContent(this.accountsOverviewViewModel);
         }
@@ -37,7 +39,8 @@ namespace WebDriveManager.WPF.ViewModel
         [EventSubscription(EventTopics.SwitchToAddAcountView, typeof(OnPublisher))]
         public void SwitchToAddAccountView(object sender, EventArgs e)
         {
-            this.SetViewContent(this.addAcountViewModel);
+            AddAccountDialogView dialog = new AddAccountDialogView { DataContext = this.addAccountDialogViewModel };
+            dialog.ShowDialog();
         }
 
         [EventSubscription(EventTopics.SwitchToAcountoverview, typeof(OnPublisher))]

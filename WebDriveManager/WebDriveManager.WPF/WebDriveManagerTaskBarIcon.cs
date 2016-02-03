@@ -27,19 +27,19 @@ namespace WebDriveManager.WPF
 
         private readonly AccountsOverviewViewModel accountsOverviewViewModel;
 
-        private readonly AddAcountViewModel addAccountViewModel;
+        private readonly AddAccountDialogViewModel addAccountDialogViewModel;
 
-        private EventBroker eventBroker;
+        private readonly EventBroker eventBroker;
 
         public WebDriveManagerTaskBarIcon(
             TaskbarIcon taskbarIcon,
             AccountsOverviewViewModel accountsOverviewViewModel,
-            AddAcountViewModel addAccountViewModel, 
+            AddAccountDialogViewModel addAccountDialogViewModel, 
             EventBroker eventBroker)
         {
             this.taskbarIcon = taskbarIcon;
             this.accountsOverviewViewModel = accountsOverviewViewModel;
-            this.addAccountViewModel = addAccountViewModel;
+            this.addAccountDialogViewModel = addAccountDialogViewModel;
             this.eventBroker = eventBroker;
             this.taskbarIcon.TrayMiddleMouseDown += (sender, args) => Application.Current.Shutdown();
             this.taskbarIcon.TrayPopupOpen += (sender, args) => this.taskbarIcon.TrayPopup.SetValue(UIElement.VisibilityProperty, Visibility.Visible);
@@ -54,7 +54,7 @@ namespace WebDriveManager.WPF
             PopUpView view = new PopUpView();
             PopUpViewModel viewModel = new PopUpViewModel(
                 this.accountsOverviewViewModel,
-                this.addAccountViewModel,
+                this.addAccountDialogViewModel,
                 this.eventBroker);
             view.DataContext = viewModel;
             return view;
